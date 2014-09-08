@@ -11,7 +11,7 @@ generate beautiful documentation and sandbox from a Swagger-compliant API. Becau
 The goal of Swagger™ is to define a standard, language-agnostic interface to REST APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined via Swagger, a consumer can understand and interact with the remote service with a minimal amount of implementation logic. Similar to what interfaces have done for lower-level programming, Swager removes the guesswork in calling the service.
 
 
-Check out [Swagger-Spec](https://github.com/wordnik/swagger-spec) for additional information about the Swagger project, including additional libraries with support for other languages and more. 
+Check out [Swagger-Spec](https://github.com/wordnik/swagger-spec) for additional information about the Swagger project, including additional libraries with support for other languages and more.
 
 
 ## How to Use It
@@ -25,8 +25,10 @@ You can rebuild swagger-ui on your own to tweak it or just so you can say you di
 1. install [handlebars](http://handlebarsjs.com/)
 2. install java
 3. npm install
-4. npm run-script build
-5. You should see the distribution under the dist folder. Open ./dist/index.html to launch Swagger UI in a browser
+4. cp src/main/cofeescript/config.cofee-sample src/main/cofeescript/config.cofee
+5. Edit src/main/cofeescript/config.cofee and set API path's
+6. npm run-script build
+7. You should see the distribution under the dist folder. Open ./dist/index.html to launch Swagger UI in a browser
 
 ### Use
 Once you open the Swagger UI, it will load the [Swagger Petstore](http://petstore.swagger.wordnik.com/api/api-docs) service and show its APIs.  You can enter your own server url and click explore to view the API.

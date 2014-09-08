@@ -5,6 +5,8 @@
   <link href='//fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'/>
   <link href='css/reset.css' media='screen' rel='stylesheet' type='text/css'/>
   <link href='css/screen.css' media='screen' rel='stylesheet' type='text/css'/>
+  <link href='css/reset.css' media='print' rel='stylesheet' type='text/css'/>
+  <link href='css/screen.css' media='print' rel='stylesheet' type='text/css'/>
   <link href='css/quickpay.css' media='screen' rel='stylesheet' type='text/css'/>
 
   <script type="text/javascript" src="lib/shred.bundle.js"></script>
@@ -55,6 +57,11 @@
 
       $('.auth input[name=username],.auth input[name=password]').change(setAuth);
 
+      $('#input_baseUrl').on('change', function() {
+        window.swaggerUi.options.url = $(this).find(':selected').val();
+        window.swaggerUi.load();
+      });
+
       window.swaggerUi.load();
 
       setAuth();
@@ -63,22 +70,19 @@
 </head>
 
 <body class="swagger-section">
-<div id='header'>
-  <div class="swagger-ui-wrap">
-    <a id="logo" href="http://quickpay.net">QuickPay API</a>
+  <div id='header'>
+    <div class="swagger-ui-wrap">
+      <a id="logo" href="http://quickpay.net">QuickPay API</a>
 
-    <form id='api_selector'>
-      <select id="input_baseUrl" name="baseUrl">
-      </select>
-    </form>
-    <div class="auth">
-      <span class="auth-label">Username/API-KEY: <input type="text" name="username"></span>
-      <span class="auth-label">Password: <input type="password" name="password"></span>
+      <div class="auth">
+        <select id="input_baseUrl" name="baseUrl"></select>
+        <span class="auth-label">Username/API-KEY: <input type="text" name="username"></span>
+        <span class="auth-label">Password: <input type="password" name="password"></span>
+      </div>
     </div>
   </div>
-</div>
 
-<div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
-<div id="swagger-ui-container" class="swagger-ui-wrap"></div>
+  <div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
+  <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
 </body>
 </html>
