@@ -3,8 +3,8 @@
 <head>
   <title>Swagger UI</title>
   <link href='//fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'/>
-  <link href='css/reset.css' media='print' rel='stylesheet' type='text/css'/>
-  <link href='css/screen.css' media='print' rel='stylesheet' type='text/css'/>
+  <link href='css/reset.css' media='screen' rel='stylesheet' type='text/css'/>
+  <link href='css/screen.css' media='screen' rel='stylesheet' type='text/css'/>
   <link href='css/quickpay.css' media='screen' rel='stylesheet' type='text/css'/>
 
   <script type="text/javascript" src="lib/shred.bundle.js"></script>
@@ -21,21 +21,25 @@
 
   <script type="text/javascript">
     $(function () {
+      $.each(window.qp_config.endpoints, function(key, item) {
+        $('#input_baseUrl').append($('<option>').attr('value', item).html(key));
+      });
+
       window.swaggerUi = new SwaggerUi({
-        url: "http://api.quickpay.net.dev/api-docs-v1",
+        url: window.qp_config.endpoints.anonymous,
         dom_id: "swagger-ui-container",
         supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
         onComplete: function(swaggerApi, swaggerUi){
           log("Loaded SwaggerUI");
           $('pre code').each(function(i, e) {
-            hljs.highlightBlock(e)
+            hljs.highlightBlock(e);
           });
         },
         onFailure: function(data) {
           log("Unable to Load SwaggerUI");
         },
         docExpansion: "none",
-      sorter : "alpha"
+        sorter : "alpha"
       });
 
       var setAuth = function() {
@@ -44,7 +48,7 @@
 
         log("username: " + username);
         log("password: " + password);
-        if(username && username.trim() != "") {
+        if(username && username.trim() !== "") {
           window.authorizations.add("key", new PasswordAuthorization("QP-Auth", username.trim(), password.trim()));
         }
       };
@@ -65,7 +69,6 @@
 
     <form id='api_selector'>
       <select id="input_baseUrl" name="baseUrl">
-        <option value="http://api.quickpay.net.dev/api-docs-v1">v1</option>
       </select>
     </form>
     <div class="auth">
