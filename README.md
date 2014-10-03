@@ -23,9 +23,9 @@ You can use the swagger-ui code AS-IS!  No need to build or recompile--just clon
 You can rebuild swagger-ui on your own to tweak it or just so you can say you did.  To do so, follow these steps:
 
 1. install [handlebars](http://handlebarsjs.com/)
-2. install java
+2. install java (`sudo apt-get install openjdk-7-jre`)
 3. npm install
-4. cp src/main/cofeescript/config.cofee-sample src/main/cofeescript/config.cofee
+4. cp src/main/coffeescript/config.coffee-sample src/main/coffeescript/config.coffee
 5. Edit src/main/cofeescript/config.cofee and set API path's
 6. npm run-script build
 7. You should see the distribution under the dist folder. Open ./dist/index.html to launch Swagger UI in a browser
