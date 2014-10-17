@@ -141,6 +141,10 @@ class OperationView extends Backbone.View
       opts.responseContentType = $("div select[name=responseContentType]", $(@el)).val()
       opts.requestContentType = $("div select[name=parameterContentType]", $(@el)).val()
 
+      # remove doc from path
+      parts = @model.resource.basePath.split("/")
+      @model.resource.basePath = parts[0] + "//" + parts[2]
+
       $(".response_throbber", $(@el)).show()
       if isFileUpload
         @handleFileUpload map, form
