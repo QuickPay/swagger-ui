@@ -55,6 +55,8 @@
         }
       };
 
+      window.authorizations.add("Accept-Version", new ApiKeyAuthorization("Accept-Version", "v10", "header"));
+      
       $('.auth input[name=username],.auth input[name=password]').change(setAuth);
 
       $('#input_baseUrl').on('change', function() {
