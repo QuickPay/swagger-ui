@@ -13,6 +13,7 @@ class ParameterView extends Backbone.View
     @model.isFile = true if type.toLowerCase() == 'file'
 
     @model.showInput = !@model.parent?
+    @model.indent = "indent-#{@model.level}"
 
     template = @template()
     $(@el).html(template(@model))

@@ -307,6 +307,14 @@
         font-weight: bold;
     }
 
+    .indent(@level) {
+      padding-left: 15px * @level;
+    }
+    .indent-1 { .indent(1); }
+    .indent-2 { .indent(2); }
+    .indent-3 { .indent(3); }
+    .indent-4 { .indent(4); }
+
     input.parameter {
         width: 300px;
         border: 1px solid #aaa;

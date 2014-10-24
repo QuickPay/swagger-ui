@@ -412,6 +412,18 @@
 .swagger-section .swagger-ui-wrap .required {
   font-weight: bold;
 }
+.swagger-section .swagger-ui-wrap .indent-1 {
+  padding-left: 15px;
+}
+.swagger-section .swagger-ui-wrap .indent-2 {
+  padding-left: 30px;
+}
+.swagger-section .swagger-ui-wrap .indent-3 {
+  padding-left: 45px;
+}
+.swagger-section .swagger-ui-wrap .indent-4 {
+  padding-left: 60px;
+}
 .swagger-section .swagger-ui-wrap input.parameter {
   width: 300px;
   border: 1px solid #aaa;
