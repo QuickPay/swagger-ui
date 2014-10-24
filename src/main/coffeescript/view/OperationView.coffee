@@ -85,19 +85,20 @@ class OperationView extends Backbone.View
     $('.response-content-type', $(@el)).append responseContentTypeView.render().el
 
     # Mark parameters as child (indented)
+    paramIndex = @model.parameters.reduce(((index, param) -> 
+      index[param.name] = param
+      index
+    ), {})
     suffix_pattern = /\[[^\[]*\]$/
     parents = []
     for param in @model.parameters
       if suffix_pattern.test(param.name)
-        parents.push param.name.replace(suffix_pattern, '')
-        level = param.name.match(/\[[^\[]*\]/g).length
-        param.level = level
+        parent_name = param.name.replace(suffix_pattern, '')
+        parent = paramIndex[parent_name]
 
-    # Mark parameters as parent (no input)
-    for param in @model.parameters
-      if parents.indexOf(param.name) >= 0
-        param.parent = true
-
+        parent.isParent = true
+        param.parent = parent
+        param.level = param.name.match(/\[[^\[]*\]/g).length
 
     # Render each parameter
     @addParameter param, contentTypeModel.consumes for param in @model.parameters
