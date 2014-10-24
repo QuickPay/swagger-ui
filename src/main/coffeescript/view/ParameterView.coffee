@@ -12,6 +12,15 @@ class ParameterView extends Backbone.View
     @model.isBody = true if @model.paramType == 'body'
     @model.isFile = true if type.toLowerCase() == 'file'
 
+    @model.showInput = !@model.isParent?
+    @model.indent = "indent-#{@model.level}"
+
+    @model.reallyRequired = @model.required
+    parent = @model.parent
+    while parent? && @model.reallyRequired
+      @model.reallyRequired = false unless parent.required
+      parent = parent.parent
+
     template = @template()
     $(@el).html(template(@model))
 
@@ -57,7 +66,9 @@ class ParameterView extends Backbone.View
         else
           Handlebars.templates.param_readonly
       else
-        if @model.required
+        if @model.reallyRequired
           Handlebars.templates.param_required
+        else if @model.required
+          Handlebars.templates.param_child_required
         else
           Handlebars.templates.param
