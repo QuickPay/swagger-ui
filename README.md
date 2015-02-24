@@ -25,10 +25,8 @@ You can rebuild swagger-ui on your own to tweak it or just so you can say you di
 1. install [handlebars](http://handlebarsjs.com/)
 2. install java (`sudo apt-get install openjdk-7-jre`)
 3. npm install
-4. cp src/main/coffeescript/config.coffee-sample src/main/coffeescript/config.coffee
-5. Edit src/main/cofeescript/config.cofee and set API path's
-6. npm run-script build
-7. You should see the distribution under the dist folder. Open ./dist/index.html to launch Swagger UI in a browser
+4. npm run-script build
+5. You should see the distribution under the dist folder. Open ./dist/index.html to launch Swagger UI in a browser
 
 ### Use
 Once you open the Swagger UI, it will load the [Swagger Petstore](http://petstore.swagger.wordnik.com/api/api-docs) service and show its APIs.  You can enter your own server url and click explore to view the API.

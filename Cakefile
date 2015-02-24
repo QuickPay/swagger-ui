@@ -4,7 +4,6 @@ path        = require 'path'
 less        = require 'less'
 
 sourceFiles  = [
-  'config',
   'SwaggerUi'
   'view/HeaderView'
   'view/MainView'
