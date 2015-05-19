@@ -96,9 +96,9 @@ class OperationView extends Backbone.View
         parent_name = param.name.replace(suffix_pattern, '')
         parent = paramIndex[parent_name]
 
-        parent.isParent = true
-        param.parent = parent
-        param.level = param.name.match(/\[[^\[]*\]/g).length
+        #parent.isParent = true
+        #param.parent = parent
+        #param.level = param.name.match(/\[[^\[]*\]/g).length
 
     # Render each parameter
     @addParameter param, contentTypeModel.consumes for param in @model.parameters
